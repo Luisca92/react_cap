@@ -36,3 +36,286 @@
     transform: rotate(360deg);
   }
 }
+
+/* App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header, nav, main, footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  flex: 1;
+  text-align: center;
+}
+
+/* Example styling for other sections */
+section {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Add this to your App.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.logo {
+  height: 50px; /* Adjust size as necessary */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-image {
+  flex: 1;
+  padding: 20px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.highlights-section {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.highlights-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.highlights-header h1 {
+  font-size: 2rem;
+}
+
+.menu-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.highlights-content {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.highlight {
+  flex: 1;
+  padding: 10px;
+  margin: 0 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.highlight img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.dish-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.dish-name {
+  font-weight: bold;
+}
+
+.dish-price {
+  color: #888;
+}
+
+.dish-description {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: left;
+}
+
+.order-delivery {
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+  text-align: left;
+}
+
+.testimonials-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.testimonials-title {
+  font-size: 2rem;
+}
+
+.testimonials-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.testimonial-rating {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.testimonial-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.testimonial-info {
+  text-align: center;
+}
+
+.testimonial-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.testimonial-review {
+  font-style: italic;
+  color: #666;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #f9f9f9;
+
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.about-text {
+  flex: 1;
+  padding-right: 10%;
+}
+
+.about-images {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image-1 {
+  position: relative; /* The position property is set to 'relative' so that we can use the transform property to move it. */
+  z-index: 0; /* The z-index property determines the stack order of the elements. A higher value means the element will be in front of others with a lower value. */
+  width: 45%; /* This sets the width of the image to 45% of its container's width. */
+  transform: translate(10%, 10%); /* The transform property is used to move the image. 
+                                      'translate(10%, -10%)' moves the image 10% to the right and 10% up relative to its original position. */
+}
+
+.about-image-2 {
+  position: relative;
+  z-index: 1;
+  width: 45%;
+  transform: translate(-20%, -20%);
+}

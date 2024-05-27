@@ -1,0 +1,88 @@
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .footer-image-container {
+    flex: 1 1 5%; /* Adjust the space taken by this container */
+    
+  }
+  
+  .footer-image {
+    max-width: 100px; /* Adjust the size as needed */
+    height: auto;
+    padding-left: 100%;
+    padding-top: 25%;
+  }
+  
+  .footer-nav-container {
+    flex: 1 1 35%; /* Adjust the space taken by this container */
+  }
+  
+  .footer-nav {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Ensure items stack vertically */
+  }
+  
+  .footer-nav li {
+    margin: 5px 0;
+  }
+  
+  .footer-nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-contact-container {
+    flex: 1 1 25%; /* Adjust the space taken by this container */
+  }
+  
+  .footer-contact-container address {
+    margin: 0;
+    font-style: normal;
+    padding-top: 10%;
+  }
+  
+  .footer-social-container {
+    flex: 1 1 20%; /* Adjust the space taken by this container */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column; /* Ensure items stack vertically */
+
+  }
+  
+  .footer-social-container a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding-top: 10%;
+    padding-left: 20%;
+
+  }
+  
+  .footer-social-container a:hover {
+    color: #ccc;
+
+  }
+  
