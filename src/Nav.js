@@ -1,17 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './App.css';
 
-export default function Nav() {
+export default function Navbar() {
   return (
     <nav>
       <ul>
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#About">About</a></li>
-        <li><a href="#Menu">Menu</a></li>
-        <li><a href="#Reservations">Reservations</a></li>
-        <li><a href="#Order Online">Order Online</a></li>
-        <li><a href="#Log In">Log In</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/menu">Menu</Link></li>
+        <li><Link to="/reservations">Reservations</Link></li>
+        <li><Link to="/order-online">Order Online</Link></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/booking">Book a Table</Link></li>
       </ul>
     </nav>
-  )
+  );
 }

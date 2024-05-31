@@ -68,14 +68,6 @@ nav li {
   text-align: center;
 }
 
-/* Example styling for other sections */
-section {
-  padding: 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Add this to your App.css */
-
 .header {
   display: flex;
   align-items: center;
@@ -109,7 +101,8 @@ nav a {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: #495e57;
+  color: white
 }
 
 .hero-content {
@@ -135,8 +128,8 @@ nav a {
 .hero-button {
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #333;
-  color: white;
+  background-color: #F4CE14;
+  color: black;
   border: none;
   cursor: pointer;
 }
@@ -144,10 +137,12 @@ nav a {
 .hero-image {
   flex: 1;
   padding: 20px;
+  display: flex;
+  justify-content: flex-end;  /* Aligns content to the right */
 }
 
 .hero-image img {
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
   border-radius: 10px;
 }
@@ -289,7 +284,24 @@ nav a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+  width: 80%;
+  padding-left: 10%;
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  margin-right: 2rem
 }
 
 .about-text {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css'; // Ensure you create this CSS file for styling
-import footerImage from './icons_assets/restauranfood.jpg'; // Replace with the actual path to your footer image
+import footerImage from './icons_assets/footerlogo.png'; // Replace with the actual path to your footer image
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Using react-icons for social media icons
 
 export default function Footer() {
