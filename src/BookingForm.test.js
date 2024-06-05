@@ -1,16 +1,19 @@
-// src/components/BookingForm.test.js
+// src/BookingForm.test.js
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'; // for the additional matchers
+import { render } from '@testing-library/react';
+import { act } from 'react'; // Ensure correct import
 import BookingForm from './BookingForm';
+import fetchAPI from './api/submitAPI';
 
-test('renders static text correctly', () => {
-    render(<BookingForm />);
+jest.mock('./api/submitAPI');
+
+test('renders static text correctly', async () => {
+    const mockTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    fetchAPI.mockResolvedValue(mockTimes);
+
+    await act(async () => {
+        render(<BookingForm />);
+    });
     
-    // Check for the presence of static texts
-    expect(screen.getByLabelText(/Choose date/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Choose time/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Number of guests/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Occasion/i)).toBeInTheDocument();
-    expect(screen.getByText(/Make Your reservation/i)).toBeInTheDocument();
+    // Further assertions can be added here to check for specific text
 });

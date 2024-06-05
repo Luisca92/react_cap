@@ -1,9 +1,13 @@
-// src/components/timesReducer.js
-export const initializeTimes = () => {
-    return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+// src/timesReducer.js
+import fetchAPI from './api/submitAPI';
+
+export const initializeTimes = async () => {
+    const today = new Date().toISOString().split('T')[0];
+    const availableTimes = await fetchAPI(today);
+    return availableTimes;
 };
 
-export const updateTimes = (state, action) => {
-    // This is a placeholder; actual implementation can vary
-    return state;
+export const updateTimes = async (date) => {
+    const availableTimes = await fetchAPI(date);
+    return availableTimes;
 };

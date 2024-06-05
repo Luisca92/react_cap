@@ -1,14 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header';
-import HomePage from './HomePage';
-import AboutPage from './AboutPage';
-import MenuPage from './MenuPage';
-import ReservationsPage from './ReservationsPage';
-import OrderOnlinePage from './OrderOnlinePage';
-import LoginPage from './LoginPage';
 import Footer from './Footer';
-import BookingPage from './BookingPage';
+import Main from './Main'; // Ensure this path is correct
 
 function App() {
   return (
@@ -16,13 +10,7 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/reservations" element={<ReservationsPage />} />
-          <Route path="/order-online" element={<OrderOnlinePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/*" element={<Main />} /> {/* Use Main for handling sub-routes */}
         </Routes>
         <Footer />
       </div>

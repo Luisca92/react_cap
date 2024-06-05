@@ -1,76 +1,107 @@
-import React, { useState } from 'react';
-import './BookingForm.css'; // Import the CSS file
+// src/BookingForm.js
+import React, { useState, useEffect } from 'react';
+import './BookingForm.css';
+import fetchAPI from './api/submitAPI'; // Ensure the correct path to fetchAPI
 
-const BookingForm = () => {
-    // State variables for form fields
+const initializeTimes = async () => {
+    const today = new Date().toISOString().split('T')[0];
+    const availableTimes = await fetchAPI(today);
+    return availableTimes;
+};
+
+const updateTimes = async (date) => {
+    const availableTimes = await fetchAPI(date);
+    return availableTimes;
+};
+
+const BookingForm = ({ submitForm }) => {
+    console.log('BookingForm rendered with submitForm:', submitForm);
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [guests, setGuests] = useState('');
     const [occasion, setOccasion] = useState('');
+    const [availableTimes, setAvailableTimes] = useState([]);
 
-    // Stateful array for available times
-    const [availableTimes] = useState([
-        '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-    ]);
+    useEffect(() => {
+        const fetchInitialTimes = async () => {
+            const times = await initializeTimes();
+            setAvailableTimes(times);
+        };
+        fetchInitialTimes();
+    }, []);
+
+    useEffect(() => {
+        if (date) {
+            const fetchAvailableTimes = async () => {
+                const times = await updateTimes(date);
+                setAvailableTimes(times);
+            };
+            fetchAvailableTimes();
+        }
+    }, [date]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission logic
-        console.log({ date, time, guests, occasion });
+        const formData = { date, time, guests, occasion };
+        console.log('handleSubmit called with formData:', formData);
+        console.log('submitForm:', submitForm);
+        submitForm(formData);
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="res-date">Choose date</label>
-            <input
-                type="date"
-                id="res-date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required
-            />
+        <div>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="res-date">Choose date</label>
+                <input
+                    type="date"
+                    id="res-date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    required
+                />
 
-            <label htmlFor="res-time">Choose time</label>
-            <select
-                id="res-time"
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                required
-            >
-                <option value="">Select a time</option>
-                {availableTimes.map((availableTime, index) => (
-                    <option key={index} value={availableTime}>
-                        {availableTime}
-                    </option>
-                ))}
-            </select>
+                <label htmlFor="res-time">Choose time</label>
+                <select
+                    id="res-time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    required
+                >
+                    <option value="">Select a time</option>
+                    {availableTimes.map((availableTime, index) => (
+                        <option key={index} value={availableTime}>
+                            {availableTime}
+                        </option>
+                    ))}
+                </select>
 
-            <label htmlFor="guests">Number of guests</label>
-            <input
-                type="number"
-                id="guests"
-                placeholder="1"
-                min="1"
-                max="10"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                required
-            />
+                <label htmlFor="guests">Number of guests</label>
+                <input
+                    type="number"
+                    id="guests"
+                    placeholder="1"
+                    min="1"
+                    max="10"
+                    value={guests}
+                    onChange={(e) => setGuests(e.target.value)}
+                    required
+                />
 
-            <label htmlFor="occasion">Occasion</label>
-            <select
-                id="occasion"
-                value={occasion}
-                onChange={(e) => setOccasion(e.target.value)}
-                required
-            >
-                <option value="">Select an occasion</option>
-                <option value="birthday">Birthday</option>
-                <option value="anniversary">Anniversary</option>
-            </select>
+                <label htmlFor="occasion">Occasion</label>
+                <select
+                    id="occasion"
+                    value={occasion}
+                    onChange={(e) => setOccasion(e.target.value)}
+                    required
+                >
+                    <option value="">Select an occasion</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                </select>
 
-            <input type="submit" value="Make Your reservation" />
-        </form>
+                <input type="submit" value="Make Your reservation" />
+            </form>
+        </div>
     );
 };
 
