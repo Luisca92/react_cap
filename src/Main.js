@@ -8,18 +8,14 @@ import OrderOnlinePage from './OrderOnlinePage';
 import LoginPage from './LoginPage';
 import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
-import submitAPI from './api/submitAPI'; // Ensure this path is correct
-
+import { submitAPI } from './api/submitAPI'; // Ensure correct import
 /* global submitAPI */
 
 export default function Main() {
-    console.log('Main component rendered'); // Basic log to check if Main is rendered
 
     const navigate = useNavigate();
-    console.log('useNavigate:', navigate); // Debugging log to check if useNavigate is defined
 
     const submitForm = async (formData) => {
-        console.log('submitForm called with formData:', formData); // Add this log
         const success = await submitAPI(formData); // Ensure this line is present
         if (success) {
             navigate('/confirmed'); // Corrected route path
@@ -27,8 +23,6 @@ export default function Main() {
             console.log('Booking failed');
         }
     };
-
-    console.log('Main rendered with submitForm:', submitForm);
 
     return (
         <main>

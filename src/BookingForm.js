@@ -1,7 +1,6 @@
-// src/BookingForm.js
 import React, { useState, useEffect } from 'react';
 import './BookingForm.css';
-import fetchAPI from './api/submitAPI'; // Ensure the correct path to fetchAPI
+import { fetchAPI } from './api/submitAPI'; // Ensure correct import
 
 const initializeTimes = async () => {
     const today = new Date().toISOString().split('T')[0];
@@ -15,12 +14,12 @@ const updateTimes = async (date) => {
 };
 
 const BookingForm = ({ submitForm }) => {
-    console.log('BookingForm rendered with submitForm:', submitForm);
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [guests, setGuests] = useState('');
     const [occasion, setOccasion] = useState('');
     const [availableTimes, setAvailableTimes] = useState([]);
+    const [isFormValid, setIsFormValid] = useState(false);
 
     useEffect(() => {
         const fetchInitialTimes = async () => {
@@ -40,11 +39,18 @@ const BookingForm = ({ submitForm }) => {
         }
     }, [date]);
 
+    useEffect(() => {
+        // Check if all form fields are valid
+        if (date && time && guests >= 1 && guests <= 10 && occasion) {
+            setIsFormValid(true);
+        } else {
+            setIsFormValid(false);
+        }
+    }, [date, time, guests, occasion]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = { date, time, guests, occasion };
-        console.log('handleSubmit called with formData:', formData);
-        console.log('submitForm:', submitForm);
         submitForm(formData);
     };
 
@@ -99,7 +105,7 @@ const BookingForm = ({ submitForm }) => {
                     <option value="anniversary">Anniversary</option>
                 </select>
 
-                <input type="submit" value="Make Your reservation" />
+                <input type="submit" value="Make Your reservation" disabled={!isFormValid} />
             </form>
         </div>
     );
