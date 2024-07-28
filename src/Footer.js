@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css'; // Ensure you create this CSS file for styling
 import footerImage from './icons_assets/footerlogo.png'; // Replace with the actual path to your footer image
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Using react-icons for social media icons
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -13,12 +14,13 @@ export default function Footer() {
         <div className="footer-nav-container">
           <nav>
             <ul className="footer-nav">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#menu">Menu</a></li>
-              <li><a href="#reservations">Reservations</a></li>
-              <li><a href="#order">Order Online</a></li>
-              <li><a href="#login">Login</a></li>
+            <li><Link to="/HomePage">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/menu">Menu</Link></li>
+              <li><Link to="/reservations">Reservations</Link></li>
+              <li><Link to="/order-online">Order Online</Link></li>
+              <li><Link to="/login">Login</Link></li>
+              <li><Link to="/booking">Book a Table</Link></li>
             </ul>
           </nav>
         </div>
