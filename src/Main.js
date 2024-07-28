@@ -10,6 +10,7 @@ import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
 import { submitAPI } from './api/submitAPI'; // Ensure correct import
 /* global submitAPI */
+/* eslint-enable no-unused-vars */
 
 export default function Main() {
 
